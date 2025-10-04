@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings - Weather Safety</title>
+    <link rel="stylesheet" href="profile.css" />
+  </head>
+  <body>
+    <nav>
+      <h1 id="navH1">Weather Safety</h1>
+      <ul id="navUL">
+        <li id="navLI"> <a href="../homeView/home.html">Home</a> </li>
+        <li id="navLI"> <a href="../alertsView/alert.html">Alerts</a> </li>
+        <li id="navLI"> <a href="../mapView/map.html">Map</a> </li>
+        <li id="navLI"><a href="../profileView/profile.html">Profile</a></li>
+      </ul>
+    </nav>
+
+    <main class="settings-container">
+
+      <div class="profile-card">
+        <div class="profile-avatar">
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <div class="profile-info">
+          <h2 class="profile-name">John Doe</h2>
+          <p class="profile-email">john.doe@email.com</p>
+        </div>
+      </div>
+
+      <section class="settings-section">
+        <!-- <h3 class="settings-section-title">Quick Actions</h3> -->
+        <div class="settings-card emergency-sos" onclick="handleEmergencySOS()">
+          <div class="settings-icon emergency-icon">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div class="settings-content">
+            <h4 class="settings-title">Emergency SOS</h4>
+            <p class="settings-subtitle">Quick access to emergency features</p>
+          </div>
+          <svg
+            class="settings-arrow"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </section>
+      <section class="settings-section">
+        <h3 class="settings-section-title">Account Settings</h3>
+        <div class="settings-group">
+          <div class="settings-item" onclick="handleEditProfile()">
+            <div class="settings-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <div class="settings-content">
+              <h4 class="settings-title">Edit Profile</h4>
+            </div>
+            <svg
+              class="settings-arrow"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+
+          <div class="settings-item" onclick="handleNotifications()">
+            <div class="settings-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+            </div>
+            <div class="settings-content">
+              <h4 class="settings-title">Notifications</h4>
+            </div>
+            <svg
+              class="settings-arrow"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+
+          <div class="settings-item" onclick="handleTemperatureUnits()">
+            <div class="settings-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"
+                ></path>
+              </svg>
+            </div>
+            <!-- <div class="settings-content">
+              <h4 class="settings-title">Temperature Units</h4>
+            </div>
+            <span class="settings-value">°C</span>
+            <svg
+              class="settings-arrow"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            > 
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>-->
+ <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <button id="backBtn">←</button>
+      <h2>Temperature Units</h2>
+    </div>
+
+    <!-- Unit Options -->
+    <div class="options">
+      <div id="celsius" class="option active">
+        <span>℃</span>
+        <p>Celsius</p>
+      </div>
+      <div id="fahrenheit" class="option">
+        <span>℉</span>
+        <p>Fahrenheit</p>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <p class="description">
+      This setting will be applied across all weather displays in the app.
+    </p>
+
+    <!-- Save Button -->
+    <button class="save-btn" id="saveBtn">Save Preference</button>
+  </div>
+          <div class="settings-item" onclick="handleLanguage()">
+            <div class="settings-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path
+                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                ></path>
+              </svg>
+            </div>
+            <div class="settings-content">
+              <h4 class="settings-title">Language</h4>
+            </div>
+            <span class="settings-value">English</span>
+            <svg
+              class="settings-arrow"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+
+          <div class="settings-item" onclick="handleGeneralSettings()">
+            <div class="settings-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="3"></circle>
+                <path
+                  d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M23 12h-6m-6 0H1m18.2 5.2l-4.2-4.2m0-6l4.2-4.2"
+                ></path>
+              </svg>
+            </div>
+            <div class="settings-content">
+              <h4 class="settings-title">General Settings</h4>
+            </div>
+            <svg
+              class="settings-arrow"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      Log Out Button
+      <button class="logout-button" onclick="handleLogout()">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        Log Out
+      </button>
+
+      <div class="settings-footer">
+        <p class="footer-app-name">Will It Rain On My Parade?</p>
+        <p class="footer-version">Version 1.0.0</p>
+      </div>
+    </main>
+
+    <script src="settings.js"></script>
+  </body>
+</html>

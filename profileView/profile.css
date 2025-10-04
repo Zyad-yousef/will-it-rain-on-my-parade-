@@ -1,0 +1,363 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  color: #eee;
+}
+body {
+  background-color: #1e2742;
+}
+.settings-container {
+  margin: 0 auto;
+  padding: 20px;
+  min-height: calc(100vh - 80px);
+}
+
+/* Profile Card */
+.profile-card {
+  background-color: #43495c;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  width: 30%;
+  align-items: center;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  background-color: #4e566b;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.profile-email {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+}
+
+/* Settings Section */
+.settings-section {
+  margin-bottom: 24px;
+}
+
+.settings-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+/* Settings Group */
+.settings-group {
+  background-color: #393f56;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Settings Card (for standalone items like Emergency SOS) */
+.settings-card {
+  background-color: #393f56;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.settings-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.settings-card.emergency-sos {
+  background: linear-gradient(
+    135deg,
+    rgba(139, 69, 69, 0.3) 0%,
+    rgba(139, 69, 69, 0.1) 100%
+  );
+  border: 1px solid rgba(139, 69, 69, 0.4);
+}
+
+.emergency-icon {
+  background-color: rgba(139, 69, 69, 0.4) !important;
+  border: 1px solid rgba(139, 69, 69, 0.6);
+}
+
+/* Settings Item */
+.settings-item {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.settings-item:last-child {
+  border-bottom: none;
+}
+
+.settings-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.settings-icon {
+  width: 44px;
+  height: 44px;
+  background-color: #4e566b;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.settings-content {
+  flex: 1;
+}
+
+.settings-title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.settings-subtitle {
+  font-size: 0.85rem;
+  color: #b0b0b0;
+  margin-top: 2px;
+}
+
+.settings-value {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  margin-right: 8px;
+}
+
+.settings-arrow {
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+/* Log Out Button */
+.logout-button {
+  width: 100%;
+  background-color: transparent;
+  border: 2px solid rgba(255, 107, 107, 0.5);
+  color: #ff6b6b;
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  margin-bottom: 24px;
+}
+
+.logout-button:hover {
+  background-color: rgba(255, 107, 107, 0.1);
+  border-color: #ff6b6b;
+}
+
+.logout-button svg {
+  stroke: #ff6b6b;
+}
+
+/* Settings Footer */
+.settings-footer {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer-app-name {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  margin-bottom: 4px;
+}
+
+.footer-version {
+  font-size: 0.8rem;
+  color: #808080;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .container {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .temperature-card {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .mainfooter {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .week {
+    width: 95%;
+  }
+
+  .day {
+    min-width: 120px;
+  }
+
+  .settings-container {
+    padding: 16px;
+  }
+
+  .profile-card {
+    padding: 16px;
+  }
+
+  .profile-avatar {
+    width: 56px;
+    height: 56px;
+  }
+
+  .profile-name {
+    font-size: 1.1rem;
+  }
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background-color: #4e566b;
+  align-items: center;
+}
+#navH1 {
+  font-size: 2.2rem;
+}
+#navUL {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  margin-right: 40px;
+}
+#navLI {
+  font-size: 1.3rem;
+}
+#navLI a {
+  text-decoration: none;
+  color: #eee;
+}
+/*-----------------------------*/
+.container {
+  background-color: #141b3a;
+  border-radius: 20px;
+  padding: 30px;
+  width: 380px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.header button {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.header h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1b2550;
+  padding: 10px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.option {
+  width: 48%;
+  background-color: #1e2753;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 12px 0;
+  cursor: pointer;
+  text-align: center;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+.option span {
+  font-size: 24px;
+  display: block;
+}
+
+.option p {
+  font-size: 13px;
+  margin: 5px 0 0;
+}
+
+.option.active {
+  background-color: #1e3a8a;
+  color: white;
+  border-color: #2563eb;
+}
+
+.description {
+  color: #9ca3af;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+.save-btn {
+  width: 100%;
+  background-color: #1e3a8a;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.save-btn:hover {
+  background-color: #2563eb;
+}

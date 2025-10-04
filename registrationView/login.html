@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Back - Login</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 420px;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 32px;
+        justify-content: center;
+      }
+
+      .logo {
+        width: 64px;
+        height: 64px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(10px);
+      }
+
+      .logo svg {
+        width: 32px;
+        height: 32px;
+        fill: white;
+      }
+
+      .header h1 {
+        color: white;
+        font-size: 28px;
+        font-weight: 600;
+      }
+
+      .form-container {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        padding: 40px 32px;
+        backdrop-filter: blur(10px);
+      }
+
+      .form-group {
+        margin-bottom: 24px;
+      }
+
+      .form-group label {
+        display: block;
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .input-icon {
+        position: absolute;
+        left: 16px;
+        width: 20px;
+        height: 20px;
+        opacity: 0.6;
+      }
+
+      .input-icon svg {
+        width: 100%;
+        height: 100%;
+        fill: white;
+      }
+
+      input {
+        width: 100%;
+        padding: 14px 16px 14px 48px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        color: white;
+        font-size: 15px;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      input:focus {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .sign-in-btn {
+        width: 100%;
+        padding: 14px;
+        background: #4a7bb8;
+        border: none;
+        border-radius: 12px;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-bottom: 24px;
+      }
+
+      .sign-in-btn:hover {
+        background: #5a8bc8;
+        transform: translateY(-1px);
+      }
+
+      .sign-in-btn:active {
+        transform: translateY(0);
+      }
+
+      .divider {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .divider span {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+      }
+
+      .google-btn {
+        width: 100%;
+        padding: 14px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .google-btn:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.25);
+      }
+
+      .google-icon {
+        width: 20px;
+        height: 20px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #4285f4;
+        font-size: 14px;
+      }
+
+      .guest-link {
+        display: block;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 15px;
+        margin-top: 32px;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .guest-link:hover {
+        color: white;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M3.5 18.5L9.5 12.5L3.5 6.5C3.5 6.5 6.5 6.5 9.5 6.5C12.5 6.5 14.5 8.5 14.5 11.5V13.5C14.5 16.5 12.5 18.5 9.5 18.5C6.5 18.5 3.5 18.5 3.5 18.5Z"
+            />
+            <path
+              d="M14.5 11.5C14.5 8.5 16.5 6.5 19.5 6.5C20.5 6.5 20.5 6.5 20.5 6.5L14.5 12.5L20.5 18.5C20.5 18.5 20.5 18.5 19.5 18.5C16.5 18.5 14.5 16.5 14.5 13.5V11.5Z"
+            />
+          </svg>
+        </div>
+        <h1>Welcome Back</h1>
+      </div>
+
+      <div class="form-container">
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <div class="input-wrapper">
+              <div class="input-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z"
+                  />
+                </svg>
+              </div>
+              <input
+                type="email"
+                id="email"
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrapper">
+              <div class="input-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
+                  />
+                  <path
+                    d="M19 10V8C19 6.67392 18.4732 5.40215 17.5355 4.46447C16.5979 3.52678 15.3261 3 14 3H10C8.67392 3 7.40215 3.52678 6.46447 4.46447C5.52678 5.40215 5 6.67392 5 8V10C4.46957 10 3.96086 10.2107 3.58579 10.5858C3.21071 10.9609 3 11.4696 3 12V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V12C21 11.4696 20.7893 10.9609 20.4142 10.5858C20.0391 10.2107 19.5304 10 19 10ZM7 8C7 7.20435 7.31607 6.44129 7.87868 5.87868C8.44129 5.31607 9.20435 5 10 5H14C14.7956 5 15.5587 5.31607 16.1213 5.87868C16.6839 6.44129 17 7.20435 17 8V10H7V8Z"
+                  />
+                </svg>
+              </div>
+              <input
+                type="password"
+                id="password"
+                placeholder="••••••••"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="sign-in-btn">Sign In</button>
+        </form>
+
+        <div class="divider">
+          <span>or</span>
+        </div>
+
+        <button class="google-btn" id="googleBtn">
+          <span class="google-icon">G</span>
+          Continue with Google
+        </button>
+      </div>
+
+      <a href="../homeView/home.html" class="guest-link" id="guestLink"
+        >Continue as Guest</a
+      >
+    </div>
+
+    <script>
+      // Handle form submission
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          console.log("Login attempt:", { email, password });
+          alert("Sign In clicked!\nEmail: " + email);
+
+          // Add your login logic here
+        });
+
+      // Handle Google sign in
+      document
+        .getElementById("googleBtn")
+        .addEventListener("click", function () {
+          console.log("Google sign in clicked");
+          alert("Continue with Google clicked!");
+
+          // Add your Google OAuth logic here
+        });
+
+      // Handle guest link
+      document
+        .getElementById("guestLink")
+        .addEventListener("click", function (e) {
+          console.log("Continue as guest clicked");
+          // <!-- alert("Continue as Guest clicked!"); -->
+
+          // Add your guest access logic here
+        });
+    </script>
+  </body>
+</html>

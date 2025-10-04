@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="home.css" />
+    <title>Safety Weather</title>
+  </head>
+  <body>
+    <nav>
+      <h1 id="navH1">Weather Safety</h1>
+      <ul id="navUL">
+        <li id="navLI"> <a href="../homeView/home.html">Home</a> </li>
+        <li id="navLI"> <a href="../alertsView/alert.html">Alerts</a> </li>
+        <li id="navLI"> <a href="../mapView/map.html">Map</a> </li>
+        <li id="navLI"><a href="../profileView/profile.html">Profile</a></li>
+      </ul>
+    </nav>
+
+    
+      <!-- <div id="general">
+        <div
+          class="backdrop-blur-xl border rounded-2xl transition-all duration-500 max-w-full light:bg-white/70 dark:bg-[var(--theme-glass-bg)] border-[var(--theme-glass-border)] p-6 mb-6"
+        >
+          <div class="flex items-start justify-between mb-6">
+            <div
+              class="flex items-center gap-2 text-[var(--theme-text-primary)] font-semibold transition-colors duration-500"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-map-pin"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                ></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>San Francisco, CA</span>
+            </div>
+            <button
+              class="text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] transition-colors duration-300"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div class="flex items-center justify-between">
+            <div>
+              <div
+                class="text-[var(--theme-text-primary)] text-6xl mb-2 font-bold transition-colors duration-500"
+              >
+                24°
+              </div>
+              <div
+                class="text-[var(--theme-text-primary)] text-lg font-semibold transition-colors duration-500"
+              >
+                Partly Cloudy
+              </div>
+              <div
+                class="flex items-center gap-4 mt-4 text-[var(--theme-text-secondary)] text-sm font-medium transition-colors duration-500"
+              >
+                <div class="flex items-center gap-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-wind"
+                    aria-hidden="true"
+                  >
+                    <path d="M12.8 19.6A2 2 0 1 0 14 16H2"></path>
+                    <path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"></path>
+                    <path d="M9.8 4.4A2 2 0 1 1 11 8H2"></path>
+                  </svg>
+                  <span>12 km/h</span>
+                </div>
+                <div class="flex items-center gap-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-droplets"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"
+                    ></path>
+                    <path
+                      d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"
+                    ></path>
+                  </svg>
+                  <span>68%</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="w-32 h-32 rounded-2xl bg-[var(--theme-icon-bg)] border border-[var(--theme-icon-border)] flex items-center justify-center transition-all duration-500"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="64"
+                height="64"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-cloud text-[var(--theme-text-primary)] transition-colors duration-500"
+                aria-hidden="true"
+              >
+                <path
+                  d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="card">
+        <div class="location">San Francisco, CA</div>
+        <div class="temp">24°</div>
+        <div class="condition">Partly Cloudy</div>
+        <div class="icon">☁️</div>
+        <div class="details">
+          <span>💨 12 km/h</span>
+          <span>💧 68%</span>
+        </div>
+      </div>
+      <div class="serve-weather-alert"></div>
+      <div class="forecasts">
+        <h1>7 Forecasts</h1>
+        <div class="week">
+          <div class="day">
+            <div
+              class="backdrop-blur-xl border rounded-2xl transition-all duration-500 max-w-full light:bg-white/70 dark:bg-[var(--theme-glass-bg)] border-[var(--theme-glass-border)] p-4 min-w-[100px] text-center"
+            >
+              <div
+                class="text-[var(--theme-text-primary)] text-sm mb-3 font-semibold transition-colors duration-500"
+              >
+                Mon
+              </div>
+              <div
+                class="w-12 h-12 mx-auto mb-3 rounded-xl bg-[var(--theme-icon-bg)] border border-[var(--theme-icon-border)] flex items-center justify-center transition-all duration-500"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-sun text-[var(--theme-text-primary)] transition-colors duration-500"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="m4.93 4.93 1.41 1.41"></path>
+                  <path d="m17.66 17.66 1.41 1.41"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="m6.34 17.66-1.41 1.41"></path>
+                  <path d="m19.07 4.93-1.41 1.41"></path>
+                </svg>
+              </div>
+              <div
+                class="text-[var(--theme-text-primary)] text-xl font-bold transition-colors duration-500"
+              >
+                24°
+              </div>
+            </div>
+          </div>
+          <div class="day">
+            <div
+              class="backdrop-blur-xl border rounded-2xl transition-all duration-500 max-w-full light:bg-white/70 dark:bg-[var(--theme-glass-bg)] border-[var(--theme-glass-border)] p-4 min-w-[100px] text-center"
+            >
+              <div
+                class="text-[var(--theme-text-primary)] text-sm mb-3 font-semibold transition-colors duration-500"
+              >
+                tus
+              </div>
+              <div
+                class="w-12 h-12 mx-auto mb-3 rounded-xl bg-[var(--theme-icon-bg)] border border-[var(--theme-icon-border)] flex items-center justify-center transition-all duration-500"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-sun text-[var(--theme-text-primary)] transition-colors duration-500"
+                  aria-hidden="true"
+                  back
+                >
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="m4.93 4.93 1.41 1.41"></path>
+                  <path d="m17.66 17.66 1.41 1.41"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="m6.34 17.66-1.41 1.41"></path>
+                  <path d="m19.07 4.93-1.41 1.41"></path>
+                </svg>
+              </div>
+              <div
+                class="text-[var(--theme-text-primary)] text-xl font-bold transition-colors duration-500"
+              >
+                24°
+              </div>
+            </div>
+          </div>
+          <div class="day">
+            <div
+              class="backdrop-blur-xl border rounded-2xl transition-all duration-500 max-w-full light:bg-white/70 dark:bg-[var(--theme-glass-bg)] border-[var(--theme-glass-border)] p-4 min-w-[100px] text-center"
+            >
+              <div
+                class="text-[var(--theme-text-primary)] text-sm mb-3 font-semibold transition-colors duration-500"
+              >
+                Mon
+              </div>
+              <div
+                class="w-12 h-12 mx-auto mb-3 rounded-xl bg-[var(--theme-icon-bg)] border border-[var(--theme-icon-border)] flex items-center justify-center transition-all duration-500"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-sun text-[var(--theme-text-primary)] transition-colors duration-500"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="m4.93 4.93 1.41 1.41"></path>
+                  <path d="m17.66 17.66 1.41 1.41"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="m6.34 17.66-1.41 1.41"></path>
+                  <path d="m19.07 4.93-1.41 1.41"></path>
+                </svg>
+              </div>
+              <div
+                class="text-[var(--theme-text-primary)] text-xl font-bold transition-colors duration-500"
+              >
+                24°
+              </div>
+            </div>
+          </div>
+          <div class="day">
+            <div
+              class="backdrop-blur-xl border rounded-2xl transition-all duration-500 max-w-full light:bg-white/70 dark:bg-[var(--theme-glass-bg)] border-[var(--theme-glass-border)] p-4 min-w-[100px] text-center"
+            >
+              <div
+                class="text-[var(--theme-text-primary)] text-sm mb-3 font-semibold transition-colors duration-500"
+              >
+                Mon
+              </div>
+              <div
+                class="w-12 h-12 mx-auto mb-3 rounded-xl bg-[var(--theme-icon-bg)] border border-[var(--theme-icon-border)] flex items-center justify-center transition-all duration-500"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-sun text-[var(--theme-text-primary)] transition-colors duration-500"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="m4.93 4.93 1.41 1.41"></path>
+                  <path d="m17.66 17.66 1.41 1.41"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="m6.34 17.66-1.41 1.41"></path>
+                  <path d="m19.07 4.93-1.41 1.41"></path>
+                </svg>
+              </div>
+              <div
+                class="text-[var(--theme-text-primary)] text-xl font-bold transition-colors duration-500"
+              >
+                24°
+              </div>
+            </div>
+          </div>
+          <div class="day">
+            <div
+              class="backdrop-blur-xl border rounded-2xl transition-all duration-500 max-w-full light:bg-white/70 dark:bg-[var(--theme-glass-bg)] border-[var(--theme-glass-border)] p-4 min-w-[100px] text-center"
+            >
+              <div
+                class="text-[var(--theme-text-primary)] text-sm mb-3 font-semibold transition-colors duration-500"
+              >
+                Mon
+              </div>
+              <div
+                class="w-12 h-12 mx-auto mb-3 rounded-xl bg-[var(--theme-icon-bg)] border border-[var(--theme-icon-border)] flex items-center justify-center transition-all duration-500"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-sun text-[var(--theme-text-primary)] transition-colors duration-500"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="m4.93 4.93 1.41 1.41"></path>
+                  <path d="m17.66 17.66 1.41 1.41"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="m6.34 17.66-1.41 1.41"></path>
+                  <path d="m19.07 4.93-1.41 1.41"></path>
+                </svg>
+              </div>
+              <div
+                class="text-[var(--theme-text-primary)] text-xl font-bold transition-colors duration-500"
+              >
+                24°
+              </div>
+            </div>
+          </div>
+          <div class="day">
+            <div
+              class="backdrop-blur-xl border rounded-2xl transition-all duration-500 max-w-full light:bg-white/70 dark:bg-[var(--theme-glass-bg)] border-[var(--theme-glass-border)] p-4 min-w-[100px] text-center"
+            >
+              <div
+                class="text-[var(--theme-text-primary)] text-sm mb-3 font-semibold transition-colors duration-500"
+              >
+                Mon
+              </div>
+              <div
+                class="w-12 h-12 mx-auto mb-3 rounded-xl bg-[var(--theme-icon-bg)] border border-[var(--theme-icon-border)] flex items-center justify-center transition-all duration-500"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-sun text-[var(--theme-text-primary)] transition-colors duration-500"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="m4.93 4.93 1.41 1.41"></path>
+                  <path d="m17.66 17.66 1.41 1.41"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="m6.34 17.66-1.41 1.41"></path>
+                  <path d="m19.07 4.93-1.41 1.41"></path>
+                </svg>
+              </div>
+              <div
+                class="text-[var(--theme-text-primary)] text-xl font-bold transition-colors duration-500"
+              >
+                24°
+              </div>
+            </div>
+          </div>
+          <div class="day" style="color: black">
+            <div
+              style="color: black"
+              class="backdrop-blur-xl border rounded-2xl transition-all duration-500 max-w-full light:bg-white/70 dark:bg-[var(--theme-glass-bg)] border-[var(--theme-glass-border)] p-4 min-w-[100px] text-center"
+            >
+              <div
+                class="text-[var(--theme-text-primary)] text-sm mb-3 font-semibold duration-500"
+              >
+                Mon
+              </div>
+              <div
+                class="w-12 h-12 mx-auto mb-3 rounded-xl bg-[var(--theme-icon-bg)] border border-[var(--theme-icon-border)] flex items-center justify-center transition-all duration-500"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-sun text-[var(--theme-text-primary)] transition-colors duration-500"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="m4.93 4.93 1.41 1.41"></path>
+                  <path d="m17.66 17.66 1.41 1.41"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="m6.34 17.66-1.41 1.41"></path>
+                  <path d="m19.07 4.93-1.41 1.41"></path>
+                </svg>
+              </div>
+              <div
+                class="text-[var(--theme-text-primary)] text-xl font-bold transition-colors duration-500"
+              >
+                24°
+              </div>
+            </div>
+          </div>
+          <div></div>
+        </div>
+      </div>
+      <div class="mainfooter">
+      <div class="container">
+        <div class="title">Safety Tips</div>
+
+        <div class="tip red">
+          <div class="tip-title">🌧️ Rain Expected</div>
+          <div class="tip-text">
+            Heavy rainfall in 2 hours. Carry an umbrella and avoid low-lying
+            areas.
+          </div>
+        </div>
+
+        <div class="tip yellow">
+          <div class="tip-title">🌤️ UV Index: Moderate</div>
+          <div class="tip-text">
+            Apply sunscreen if outdoors for extended periods.
+          </div>
+        </div>
+
+        <div class="tip teal">
+          <div class="tip-title">💧 Stay Hydrated</div>
+          <div class="tip-text">
+            Moderate humidity levels. Drink water regularly throughout the day.
+          </div>
+        </div>
+      </div>
+      <div class="temperature-card">
+        <div class="temperature-card-header">
+          <div class="icon-box">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              fill="none"
+              stroke="#fff"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M16 7h6v6"></path>
+              <path d="m22 7-8.5 8.5-5-5L2 17"></path>
+            </svg>
+          </div>
+          <h3>September Temperature Trends</h3>
+        </div>
+
+        <div class="temperature-chart">
+          <svg viewBox="0 0 400 180" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="lineGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#4299FF" stop-opacity="0.8" />
+                <stop offset="100%" stop-color="#4299FF" stop-opacity="0.2" />
+              </linearGradient>
+              <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#4299FF" stop-opacity="0.3" />
+                <stop offset="100%" stop-color="#4299FF" stop-opacity="0.05" />
+              </linearGradient>
+            </defs>
+
+            <!-- Grid lines -->
+            <g stroke="rgba(255,255,255,0.1)" stroke-dasharray="3 3">
+              <line x1="0" y1="0" x2="400" y2="0"></line>
+              <line x1="0" y1="45" x2="400" y2="45"></line>
+              <line x1="0" y1="90" x2="400" y2="90"></line>
+              <line x1="0" y1="135" x2="400" y2="135"></line>
+              <line x1="0" y1="180" x2="400" y2="180"></line>
+            </g>
+
+            <!-- Area + Line -->
+            <path
+              d="M10,160 L86,132 L162,104 L238,76 L314,48 L390,20 L390,180 L10,180 Z"
+              fill="url(#areaGradient)"
+            ></path>
+            <polyline
+              points="10,160 86,132 162,104 238,76 314,48 390,20"
+              fill="none"
+              stroke="url(#lineGradient)"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></polyline>
+
+            <!-- Data points -->
+            <g fill="#fff" stroke="#4299FF" stroke-width="2">
+              <circle cx="10" cy="160" r="4"></circle>
+              <circle cx="86" cy="132" r="4"></circle>
+              <circle cx="162" cy="104" r="4"></circle>
+              <circle cx="238" cy="76" r="4"></circle>
+              <circle cx="314" cy="48" r="4"></circle>
+              <circle cx="390" cy="20" r="4"></circle>
+            </g>
+          </svg>
+
+          <div class="years">
+            <span>2020</span><span>2021</span><span>2022</span><span>2023</span
+            ><span>2024</span><span>2025</span>
+          </div>
+        </div>
+
+        <div class="temperature-footer">
+          <p>
+            September is trending hotter each year. Morning activities between
+            7–10 AM are recommended for outdoor events.
+          </p>
+        </div>
+      </div>
+    </div>
+    </main>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="home.js"></script>
+    <script src="weather-data.js"></script>
+  </body>
+</html>
