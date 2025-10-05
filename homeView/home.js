@@ -332,7 +332,7 @@ function getWeatherIcon(condition) {
 }
 
 function getDayName(dateString) {
-  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[new Date(dateString).getDay()];
 }
 
