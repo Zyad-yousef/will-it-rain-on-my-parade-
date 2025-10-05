@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="map.css" />
+    <title>Safety Weather's Map</title>
+  </head>
+  <body>
+    <nav>
+      <h1 id="navH1">Weather Safety</h1>
+      <ul id="navUL">
+        <li id="navLI"><a href="../homeView/home.html">Home</a></li>
+        <li id="navLI"><a href="../alertsView/alert.html">Alerts</a></li>
+        <li id="navLI"><a href="../mapView/index.html">Map</a></li>
+      </ul>
+    </nav>
+
+    <div id="map"></div>
+
+    Added weather overlay container for animations
+    <div id="weatherOverlay"></div>
+
+    Added weather info panel with all required elements
+    <div id="weatherInfo">
+      <button id="closeBtn">&times;</button>
+      <div class="weather-content">
+        <div id="weatherIcon" class="weather-icon"></div>
+        <h2 id="locationName">Location</h2>
+        <div class="temperature" id="temperature">--°C</div>
+        <div class="condition" id="condition">--</div>
+        <div class="weather-details">
+          <div class="detail-item">
+            <span class="detail-label">Humidity</span>
+            <span class="detail-value" id="humidity">--%</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Wind Speed</span>
+            <span class="detail-value" id="windSpeed">-- m/s</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Coordinates</span>
+            <span class="detail-value" id="coordinates">--, --</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    Added loading indicator
+    <div id="loading">
+      <div class="spinner"></div>
+      <p>Loading weather data...</p>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="map.js"></script>
+  </body>
+</html>
